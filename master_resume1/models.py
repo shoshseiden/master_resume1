@@ -19,6 +19,10 @@ class ContactInformation(models.Model): # User profile info as well
         return self.username
 '''
 
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+
 class Skill(models.Model):
     skill_category = models.CharField(max_length=50) # i.e. retail, restaurant, etc
     skill_name = models.CharField(max_length=50)
