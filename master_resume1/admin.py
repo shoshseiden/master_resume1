@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import ContactInformation, Skill, WorkExperience, Education, VolunteerExperience, CustomResume
+from .models import Skill, WorkExperience, Education, VolunteerExperience, CustomResume
 
 
 
-class ContactInformationAdmin(admin.ModelAdmin):
-    fields = ['name', 'phone', 'email', 'street_address', 'city', 'state', 'zip_code']
+# class ContactInformationAdmin(admin.ModelAdmin):
+#    fields = ['name', 'phone', 'email', 'street_address', 'city', 'state', 'zip_code']
 
 
 class SkillAdmin(admin.ModelAdmin):
@@ -29,7 +29,7 @@ class CustomResumeAdmin(admin.ModelAdmin):
                  ('Experience', {'fields': ['skill', 'work', 'education', 'volunteer']}),
                 ]
 
-admin.site.register(ContactInformation, ContactInformationAdmin)
+# admin.site.register(ContactInformation, ContactInformationAdmin)
 admin.site.register(Skill, SkillAdmin)
 admin.site.register(WorkExperience, WorkExperienceAdmin)
 admin.site.register(Education, EducationAdmin)
