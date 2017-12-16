@@ -9,6 +9,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r"^$", TemplateView.as_view(template_name="homepage.html"), name="home"),
     url(r"^admin/", include(admin.site.urls)),
+    url(r"^account/signup/$", master_resume1.views.SignupView.as_view(), name="account_signup"),
     url(r"^account/", include("account.urls")),
 ]
 

@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 
 # Master Resume Models
+'''
 class ContactInformation(models.Model): # User profile info as well
     username = User.username
     first_name = User.first_name
@@ -16,6 +17,7 @@ class ContactInformation(models.Model): # User profile info as well
 
     def __str__(self):
         return self.username
+'''
 
 class Skill(models.Model):
     skill_category = models.CharField(max_length=50) # i.e. retail, restaurant, etc
