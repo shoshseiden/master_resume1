@@ -1,4 +1,9 @@
 from django.dispatch import receiver
+from django.db.models.signals import post_save
+
+from django.contrib.auth.models import User
+
+from master_resume1.models import Profile
 
 from account.signals import password_changed
 from account.signals import user_sign_up_attempt, user_signed_up
@@ -57,3 +62,9 @@ def handle_user_signed_up(sender, **kwargs):
         action="USER_SIGNED_UP",
         extra={}
     )
+
+
+@receiver(post_save, sender=User)
+def handle_user_save(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)

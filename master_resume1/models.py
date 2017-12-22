@@ -27,7 +27,7 @@ class Profile(models.Model):
     street_address = models.CharField(max_length=150)
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=15)
-    zip_code = models.IntegerField()
+    zip_code = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return self.user
