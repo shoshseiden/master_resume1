@@ -20,7 +20,17 @@ class ContactInformation(models.Model): # User profile info as well
 '''
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    phone = models.CharField(max_length=20)
+    street_address = models.CharField(max_length=150)
+    city = models.CharField(max_length=50)
+    state = models.CharField(max_length=15)
+    zip_code = models.IntegerField()
+
+    def __str__(self):
+        return self.user
 
 
 class Skill(models.Model):
