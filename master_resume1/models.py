@@ -74,7 +74,7 @@ class VolunteerExperience(models.Model):
 
 # Custom Resume Models
 class CustomResume(models.Model):
-    # contact_info = models.ForeignKey(ContactInformation)
+    profile = models.ForeignKey(Profile)
     skill = models.ForeignKey(Skill)
     work = models.ForeignKey(WorkExperience)
     education = models.ForeignKey(Education)

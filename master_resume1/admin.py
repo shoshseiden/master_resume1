@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Skill, WorkExperience, Education, VolunteerExperience, CustomResume
+from .models import Profile, Skill, WorkExperience, Education, VolunteerExperience, CustomResume
 
 
 
-# class ContactInformationAdmin(admin.ModelAdmin):
-#    fields = ['name', 'phone', 'email', 'street_address', 'city', 'state', 'zip_code']
+class ProfileAdmin(admin.ModelAdmin):
+    fields = ['user', 'first_name', 'last_name', 'phone', 'street_address', 'city', 'state', 'zip_code']
 
 
 class SkillAdmin(admin.ModelAdmin):
@@ -25,11 +25,11 @@ class VolunteerExperienceAdmin(admin.ModelAdmin):
 
 class CustomResumeAdmin(admin.ModelAdmin):
     fieldsets = [('Title and Objective', {'fields': ['custom_resume_title', 'custom_resume_objective']}),
-                 ('Contact Information', {'fields': ['contact_info']}),
+                 ('Contact Information', {'fields': ['profile']}),
                  ('Experience', {'fields': ['skill', 'work', 'education', 'volunteer']}),
                 ]
 
-# admin.site.register(ContactInformation, ContactInformationAdmin)
+admin.site.register(Profile, ProfileAdmin)
 admin.site.register(Skill, SkillAdmin)
 admin.site.register(WorkExperience, WorkExperienceAdmin)
 admin.site.register(Education, EducationAdmin)
