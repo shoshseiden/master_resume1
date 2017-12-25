@@ -3,22 +3,6 @@ from django.contrib.auth.models import User
 
 
 # Master Resume Models
-'''
-class ContactInformation(models.Model): # User profile info as well
-    username = User.username
-    first_name = User.first_name
-    last_name = User.last_name
-    email = User.email
-    phone = models.CharField(max_length=20)
-    street_address = models.CharField(max_length=150)
-    city = models.CharField(max_length=50)
-    state = models.CharField(max_length=2)
-    zip_code = models.IntegerField()
-
-    def __str__(self):
-        return self.username
-'''
-
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
