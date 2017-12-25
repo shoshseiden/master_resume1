@@ -18,7 +18,7 @@ class SignupView(account.views.SignupView):
         super(SignupView, self).after_signup
 
     def create_profile(self, form):
-        profile = Profile.user # replace with your reverse one-to-one profile attribute
+        profile = self.user # replace with your reverse one-to-one profile attribute
         profile.first_name = form.cleaned_data["first_name"]
         profile.last_name = form.cleaned_data["last_name"]
         profile.phone = form.cleaned_data["phone"]
