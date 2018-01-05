@@ -11,14 +11,13 @@ class SignupView(account.views.SignupView):
 
     form_class = master_resume1.forms.SignupForm
     identifier_field = "email"
-    user = Profile.user
 
     def after_signup(self, form):
         self.create_profile(form)
         super(SignupView, self).after_signup
 
     def create_profile(self, form):
-        profile = self.user # replace with your reverse one-to-one profile attribute
+        profile = self.created_user.profile 
         profile.first_name = form.cleaned_data["first_name"]
         profile.last_name = form.cleaned_data["last_name"]
         profile.phone = form.cleaned_data["phone"]
