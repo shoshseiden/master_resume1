@@ -1,4 +1,6 @@
 from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404, render
+
 from master_resume1.models import Profile
 
 import account.forms
@@ -17,7 +19,7 @@ class SignupView(account.views.SignupView):
         super(SignupView, self).after_signup
 
     def create_profile(self, form):
-        profile = self.created_user.profile 
+        profile = self.created_user.profile
         profile.first_name = form.cleaned_data["first_name"]
         profile.last_name = form.cleaned_data["last_name"]
         profile.phone = form.cleaned_data["phone"]
@@ -35,3 +37,9 @@ class SignupView(account.views.SignupView):
 class LoginView(account.views.LoginView):
 
     form_class = account.forms.LoginEmailForm
+
+def customize(request, profile_id):
+    template_name = "customize.html"
+    selected_profile = get_object_or_404(Profile, pk=profile_id)
+    ctx = {'profile': selected_profile}
+    return render(request, template_name, ctx)
