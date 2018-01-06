@@ -14,7 +14,7 @@ class Profile(models.Model):
     zip_code = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
-        return self.user
+        return "%s" % self.user
 
 
 class Skill(models.Model):
