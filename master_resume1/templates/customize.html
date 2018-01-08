@@ -6,3 +6,14 @@ sections of the resume, such as Education, Work, Skills, etc. This is also
 where the user will create a custom name for the resume as well as add an
 objective. Link on home page will lead to this page as well.
 {% endcomment %}
+
+{% for profile in profile.profile_set.all %}
+    <li>{{ profile.user }}</li>
+    <li>{{ profile.first_name }}</li>
+    <li>{{ profile.last_name}}</li>
+    <li>{{ profile.phone }}</li>
+    <li>{{ profile.street_address }}</li>
+    <li>{{ profile.city }}</li>
+    <li>{{ profile.state }}</li>
+    <li>{{ profile.zip_code }}</li>
+{% endfor %}
