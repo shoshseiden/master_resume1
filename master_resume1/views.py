@@ -37,9 +37,3 @@ class SignupView(account.views.SignupView):
 class LoginView(account.views.LoginView):
 
     form_class = account.forms.LoginEmailForm
-
-def customize(request, profile_id):
-    template_name = "customize.html"
-    selected_profile = get_object_or_404(Profile, pk=profile_id)
-    ctx = {'profile': selected_profile}
-    return render(request, template_name, ctx)
