@@ -13,6 +13,8 @@ urlpatterns = [
     url(r"^admin/", include(admin.site.urls)),
     url(r"^account/signup/$", views.SignupView.as_view(), name="account_signup"),
     url(r"^account/", include("account.urls")),
+    url(r"^customize/$", views.CustomView.as_view(), name="customize"),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
