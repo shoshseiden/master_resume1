@@ -39,5 +39,5 @@ class LoginView(account.views.LoginView):
 
 
 class CustomView(generic.TemplateView):
-
+# Placeholder view until data is inserted.
     template_name = "customize.html"
