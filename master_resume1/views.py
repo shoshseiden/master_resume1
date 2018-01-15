@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 from django.views import generic
 
@@ -37,7 +38,9 @@ class LoginView(account.views.LoginView):
 
     form_class = account.forms.LoginEmailForm
 
-
-class CustomView(generic.TemplateView):
-# Placeholder view until data is inserted.
-    template_name = "customize.html"
+def custom(request, profile_id):
+    try:
+        profile = Profile.objects.get(pk=profile_id)
+    except Profile.DoesNotExist:
+        raise Http404("Profile does not exist")
+    return render(request, "customize.html", {"profile": profile})
