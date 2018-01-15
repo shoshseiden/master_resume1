@@ -17,7 +17,7 @@ class SignupView(account.views.SignupView):
 
     def after_signup(self, form):
         self.create_profile(form)
-        super(SignupView, self).after_signup
+        super(SignupView, self).after_signup(form)
 
     def create_profile(self, form):
         profile = self.created_user.profile
@@ -31,9 +31,7 @@ class SignupView(account.views.SignupView):
         profile.save()
 
     def generate_username(self, form):
-        # Do something to generate a unique username (required by the django user model)
-        username = User.email
-        return username
+        return form.cleaned_data["email"]
 
 class LoginView(account.views.LoginView):
 
