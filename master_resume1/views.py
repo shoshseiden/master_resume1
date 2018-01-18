@@ -43,4 +43,4 @@ def custom(request, profile_id):
         profile = Profile.objects.get(pk=profile_id)
     except Profile.DoesNotExist:
         raise Http404("Profile does not exist")
-    return render(request, "customize.html", {"profile": profile})
+    return render(request, "custom.html", {"profile": profile})
