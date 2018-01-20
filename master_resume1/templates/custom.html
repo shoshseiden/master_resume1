@@ -1,3 +1,5 @@
+{% extends "site_base.html" %}
+
 {% comment %}
 This page will contain selected content from the master page.
 It will also contain editing functions to add or delete content
@@ -7,11 +9,10 @@ where the user will create a custom name for the resume as well as add an
 objective. Link on home page will lead to this page as well.
 {% endcomment %}
 
-<li>{{ profile.user }}</li>
-<li>{{ profile.first_name }}</li>
-<li>{{ profile.last_name}}</li>
+{% block body %}
+<li>{{ profile.first_name }} {{ profile.last_name}}</li>
 <li>{{ profile.phone }}</li>
+<li>{{ profile.user }}</li>
 <li>{{ profile.street_address }}</li>
-<li>{{ profile.city }}</li>
-<li>{{ profile.state }}</li>
-<li>{{ profile.zip_code }}</li>
+<li>{{ profile.city }}, {{ profile.state }} {{ profile.zip_code }} </li>
+{% endblock %}
