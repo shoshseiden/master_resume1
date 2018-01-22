@@ -55,6 +55,7 @@ STATE_CHOICES = (
     ('Wyoming', 'WY'),
 )
 
+
 class SignupForm(account.forms.SignupForm):
     first_name = forms.CharField()
     last_name = forms.CharField()
@@ -67,3 +68,8 @@ class SignupForm(account.forms.SignupForm):
     def __init__(self, *args, **kwargs):
         super(SignupForm, self).__init__(*args, **kwargs)
         del self.fields["username"]
+
+
+class MasterSkillForm(forms.Form):
+    skill_category = forms.CharField() # i.e. retail, restaurant, etc
+    skill_name = forms.CharField()

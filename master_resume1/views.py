@@ -3,7 +3,7 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 from django.views import generic
 
-from master_resume1.models import Profile
+from master_resume1.models import Profile, Skill
 
 import account.forms
 import account.views
@@ -44,3 +44,11 @@ def custom(request, profile_id):
     except Profile.DoesNotExist:
         raise Http404("Profile does not exist")
     return render(request, "custom.html", {"profile": profile})
+
+def master(request, skill_id):
+    # insert form for skills 
+    try:
+        profile = Skill.objects.get(pk=skill_id)
+    except Skill.DoesNotExist:
+        raise Http404("Skill does not exist")
+    return render(request, "master.html", {"skill": skill})
