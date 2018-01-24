@@ -73,3 +73,26 @@ class SignupForm(account.forms.SignupForm):
 class MasterSkillForm(forms.Form):
     skill_category = forms.CharField() # i.e. retail, restaurant, etc
     skill_name = forms.CharField()
+
+
+class MasterWorkForm(forms.Form):
+    work_place = forms.CharField()
+    work_dates = forms.CharField() # This will change to DateTimeField.
+                                    #  Place saver for now.
+    work_description = forms.CharField(widget=forms.Textarea)
+
+
+class MasterEducationForm(forms.Form):
+    education_institution = forms.CharField()
+    education_degree = forms.CharField()
+    education_dates = forms.CharField() # This will change to DateTimeField.
+                                        #  Place saver for now.
+    education_gpa = forms.CharField() # Might change to IntegerField if needed.
+    education_description = forms.CharField(widget=forms.Textarea)
+
+
+class MasterVolunteerForm(forms.Form):
+    volunteer_organization = models.CharField()
+    volunteer_dates = models.CharField() # This will change to DateTimeField.
+                                                      #  Place saver for now.
+    volunteer_description = models.CharField(widget=forms.Textarea)
