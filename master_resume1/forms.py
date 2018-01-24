@@ -92,7 +92,7 @@ class MasterEducationForm(forms.Form):
 
 
 class MasterVolunteerForm(forms.Form):
-    volunteer_organization = models.CharField()
-    volunteer_dates = models.CharField() # This will change to DateTimeField.
-                                                      #  Place saver for now.
-    volunteer_description = models.CharField(widget=forms.Textarea)
+    volunteer_organization = forms.CharField()
+    volunteer_dates = forms.CharField() # This will change to DateTimeField.
+                                        #  Place saver for now.
+    volunteer_description = forms.CharField(widget=forms.Textarea)
