@@ -46,6 +46,11 @@ def custom(request, profile_id):
     return render(request, "custom.html", {"profile": profile})
 
 def master(request):
+    ctx = {"skill_form": skill_form,
+           "work_form": work_form,
+           "education_form": education_form,
+           "volunteer_form": volunteer_form}
+           
     if request.method == "POST":
         skill_form = MasterSkillForm(request.POST)
         work_form = MasterWorkForm(request.POST)
@@ -56,4 +61,4 @@ def master(request):
             pass
     else:
         pass
-    return render(request, "login.html", {"form": form})
+    return render(request, "master.html", ctx)
