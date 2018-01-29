@@ -44,3 +44,16 @@ def custom(request, profile_id):
     except Profile.DoesNotExist:
         raise Http404("Profile does not exist")
     return render(request, "custom.html", {"profile": profile})
+
+def master(request):
+    if request.method == "POST":
+        skill_form = MasterSkillForm(request.POST)
+        work_form = MasterWorkForm(request.POST)
+        education_form = MasterEducationForm(request.POST)
+        volunteer_form = MasterWorkForm(request.POST)
+
+        if skill_form.is_valid() and work_form.is_valid() and education_form.is_valid() and volunteer_form.is_valid():
+            pass
+    else:
+        pass
+    return render(request, "login.html", {"form": form})
