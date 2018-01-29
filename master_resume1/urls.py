@@ -15,6 +15,7 @@ urlpatterns = [
     url(r"^account/login/$", views.LoginView.as_view(), name="account_login"),
     url(r"^account/", include("account.urls")),
     url(r"^(?P<profile_id>[0-9]+)/custom/", views.custom, name="custom"),
+    url(r"^master/$", views.master, name="master"), # Edit later.
 
 ]
 
