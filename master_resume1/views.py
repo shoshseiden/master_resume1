@@ -3,17 +3,16 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 from django.views import generic
 
+from master_resume1.forms import SignupForm, SkillForm, EducationForm, WorkForm, VolunteerForm
 from master_resume1.models import Profile, Skill
 
 import account.forms
 import account.views
 
-import master_resume1.forms
-
 
 class SignupView(account.views.SignupView):
 
-    form_class = master_resume1.forms.SignupForm
+    form_class = SignupForm
     identifier_field = "email"
 
     def after_signup(self, form):
@@ -52,12 +51,17 @@ def master(request):
            "volunteer_form": volunteer_form}
     '''
 
-    skill_form = SkillForm(request.POST)
-    # work_form = WorkForm(request.POST)
-    # education_form = EducationForm(request.POST)
-    # volunteer_form = VounteerForm(request.POST)
+    skill_form = SkillForm()
+    # work_form = WorkForm()
+    # education_form = EducationForm()
+    # volunteer_form = VounteerForm()
 
     if request.method == "POST":
+        skill_form = SkillForm(request.POST)
+        # work_form = WorkForm(request.POST)
+        # education_form = EducationForm(request.POST)
+        # volunteer_form = VounteerForm(request.POST)
+
         if skill_form.is_valid():
             skill_form.save()
     else:
