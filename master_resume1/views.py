@@ -46,19 +46,20 @@ def custom(request, profile_id):
     return render(request, "custom.html", {"profile": profile})
 
 def master(request):
-    ctx = {"skill_form": skill_form,
+    '''ctx = {"skill_form": skill_form,
            "work_form": work_form,
            "education_form": education_form,
            "volunteer_form": volunteer_form}
-           
-    if request.method == "POST":
-        skill_form = MasterSkillForm(request.POST)
-        work_form = MasterWorkForm(request.POST)
-        education_form = MasterEducationForm(request.POST)
-        volunteer_form = MasterWorkForm(request.POST)
+    '''
 
-        if skill_form.is_valid() and work_form.is_valid() and education_form.is_valid() and volunteer_form.is_valid():
-            pass
+    skill_form = SKillForm(request.POST)
+    # work_form = WorkForm(request.POST)
+    # education_form = EducationForm(request.POST)
+    # volunteer_form = VounteerForm(request.POST)
+
+    if request.method == "POST":
+        if skill_form.is_valid():
+            skill_form.save()
     else:
         pass
-    return render(request, "master.html", ctx)
+    return render(request, "master.html", {"skill_form": skill_form})

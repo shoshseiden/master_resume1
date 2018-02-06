@@ -12,6 +12,11 @@ skills or experience to transfer over to the custom resume.
 {% comment %}
 The skill form will go in this position
 {% endcomment %}
+<form method="post" action="">
+  {% csrf_token %}
+  {{ skill_form|bootstrap }}
+  <input type="submit" class="btn btn-default">
+</form>
 
 <h2>Work Experience</h2>
 {% comment %}

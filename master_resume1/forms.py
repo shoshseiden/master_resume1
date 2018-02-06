@@ -70,19 +70,19 @@ class SignupForm(account.forms.SignupForm):
         del self.fields["username"]
 
 
-class MasterSkillForm(forms.Form):
+class SKillForm(forms.Form):
     skill_category = forms.CharField() # i.e. retail, restaurant, etc
     skill_name = forms.CharField()
 
 
-class MasterWorkForm(forms.Form):
+class WorkForm(forms.Form):
     work_place = forms.CharField()
     work_dates = forms.CharField() # This will change to DateTimeField.
                                     #  Place saver for now.
     work_description = forms.CharField(widget=forms.Textarea)
 
 
-class MasterEducationForm(forms.Form):
+class EducationForm(forms.Form):
     education_institution = forms.CharField()
     education_degree = forms.CharField()
     education_dates = forms.CharField() # This will change to DateTimeField.
@@ -91,7 +91,7 @@ class MasterEducationForm(forms.Form):
     education_description = forms.CharField(widget=forms.Textarea)
 
 
-class MasterVolunteerForm(forms.Form):
+class VolunteerForm(forms.Form):
     volunteer_organization = forms.CharField()
     volunteer_dates = forms.CharField() # This will change to DateTimeField.
                                         #  Place saver for now.
