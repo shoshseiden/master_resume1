@@ -52,7 +52,7 @@ def master(request):
            "volunteer_form": volunteer_form}
     '''
 
-    skill_form = SKillForm(request.POST)
+    skill_form = SkillForm(request.POST)
     # work_form = WorkForm(request.POST)
     # education_form = EducationForm(request.POST)
     # volunteer_form = VounteerForm(request.POST)

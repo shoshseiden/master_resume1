@@ -70,7 +70,7 @@ class SignupForm(account.forms.SignupForm):
         del self.fields["username"]
 
 
-class SKillForm(forms.Form):
+class SkillForm(forms.Form):
     skill_category = forms.CharField() # i.e. retail, restaurant, etc
     skill_name = forms.CharField()
 
