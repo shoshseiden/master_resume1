@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404, render
 from django.views import generic
 
 from master_resume1.forms import SignupForm, SkillForm, EducationForm, WorkForm, VolunteerForm
-from master_resume1.models import Profile, Skill
+from master_resume1.models import Profile, Skill, WorkExperience, Education, VolunteerExperience
 
 import account.forms
 import account.views
@@ -73,5 +73,8 @@ def master(request):
         if volunteer_form.is_valid():
             volunteer_form.save()
     else:
-        pass
+        skill_form = SkillForm()
+        work_form = WorkForm()
+        education_form = EducationForm()
+        volunteer_form = VolunteerForm()
     return render(request, "master.html", ctx)

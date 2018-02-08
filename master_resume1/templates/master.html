@@ -17,6 +17,11 @@ skills or experience to transfer over to the custom resume.
   <input type="submit" class="btn btn-default">
 </form>
 
+{% if skill_form %}
+  <li>{{skill.skill_category}}</li>
+  <li>{{skill.skill_name}}</li>
+{% endif %}
+
 <h2>Work Experience</h2>
 <form method="post" action="">
   {% csrf_token %}
