@@ -132,6 +132,7 @@ INSTALLED_APPS = [
     # templates
     "bootstrapform",
     "pinax.templates",
+    "django_forms_bootstrap",
 
     # external
     "account",
@@ -187,7 +188,7 @@ ACCOUNT_LOGIN_REDIRECT_URL = "home"
 ACCOUNT_LOGOUT_REDIRECT_URL = "home"
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 2
 ACCOUNT_USE_AUTH_AUTHENTICATE = True
-ACCOUNT_USER_DISPLAY = lambda user: user.email 
+ACCOUNT_USER_DISPLAY = lambda user: user.email
 
 AUTHENTICATION_BACKENDS = [
     "account.auth_backends.UsernameAuthenticationBackend",

@@ -1,4 +1,6 @@
 {% extends "site_base.html" %}
+{% load bootstrap_tags %}
+
 {% comment %}
 This page will contain content for the master resume.
 Content will functionality for user to add all experience
@@ -9,28 +11,31 @@ skills or experience to transfer over to the custom resume.
 {% block body %}
 
 <h2>Skills</h2>
-{% comment %}
-The skill form will go in this position
-{% endcomment %}
 <form method="post" action="">
   {% csrf_token %}
-  {{ skill_form }}
+  {{ skill_form | as_bootstrap }}
   <input type="submit" class="btn btn-default">
 </form>
 
 <h2>Work Experience</h2>
-{% comment %}
-The work form will go in this position
-{% endcomment %}
+<form method="post" action="">
+  {% csrf_token %}
+  {{ work_form | as_bootstrap }}
+  <input type="submit" class="btn btn-default">
+</form>
 
 <h2>Education</h2>
-{% comment %}
-The education form will go in this position
-{% endcomment %}
+<form method="post" action="">
+  {% csrf_token %}
+  {{ education_form | as_bootstrap }}
+  <input type="submit" class="btn btn-default">
+</form>
 
 <h2>Volunteer Experience</h2>
-{% comment %}
-The volunteer form will go in this position
-{% endcomment %}
+<form method="post" action="">
+  {% csrf_token %}
+  {{ volunteer_form | as_bootstrap }}
+  <input type="submit" class="btn btn-default">
+</form>
 
 {% endblock %}

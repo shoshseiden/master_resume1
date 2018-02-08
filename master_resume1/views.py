@@ -45,25 +45,33 @@ def custom(request, profile_id):
     return render(request, "custom.html", {"profile": profile})
 
 def master(request):
-    '''ctx = {"skill_form": skill_form,
+    skill_form = SkillForm()
+    work_form = WorkForm()
+    education_form = EducationForm()
+    volunteer_form = VolunteerForm()
+
+    ctx = {"skill_form": skill_form,
            "work_form": work_form,
            "education_form": education_form,
            "volunteer_form": volunteer_form}
-    '''
-
-    skill_form = SkillForm()
-    # work_form = WorkForm()
-    # education_form = EducationForm()
-    # volunteer_form = VounteerForm()
 
     if request.method == "POST":
         skill_form = SkillForm(request.POST)
-        # work_form = WorkForm(request.POST)
-        # education_form = EducationForm(request.POST)
-        # volunteer_form = VounteerForm(request.POST)
+        work_form = WorkForm(request.POST)
+        education_form = EducationForm(request.POST)
+        volunteer_form = VolunteerForm(request.POST)
 
         if skill_form.is_valid():
             skill_form.save()
+
+        if work_form.is_valid():
+            work_form.save()
+
+        if education_form.is_valid():
+            education_form.save()
+
+        if volunteer_form.is_valid():
+            volunteer_form.save()
     else:
         pass
-    return render(request, "master.html", {"skill_form": skill_form})
+    return render(request, "master.html", ctx)
