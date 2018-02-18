@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import inlineformset_factory
 
 from .states import States
 
@@ -45,3 +46,10 @@ class VolunteerForm(forms.Form):
     volunteer_dates = forms.CharField() # This will change to DateTimeField.
                                         #  Place saver for now.
     volunteer_description = forms.CharField(widget=forms.Textarea)
+
+"""
+SkillForm = inlineformset_factory(Skill, fields=('skill_category', 'skill_name'))
+WorkForm = inlineformset_factory(WorkExperience, fields=('work_place', 'work_dates', 'work_description'))
+EducationForm = inlineformset_factory(Education, fields=('education_institution', 'education_degree', 'education_dates', 'education_gpa','education_description'))
+VolunteerForm = inlineformset_factory(Volunteer, fields=('volunteer_organization', 'volunteer_dates', 'volunteer_description'))
+"""
