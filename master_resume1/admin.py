@@ -12,15 +12,15 @@ class SkillAdmin(admin.ModelAdmin):
 
 
 class WorkExperienceAdmin(admin.ModelAdmin):
-    fields = ['work_place', 'work_dates', 'work_description']
+    fields = ['work_place', 'work_city', 'work_state', 'work_dates', 'work_description']
 
 
 class EducationAdmin(admin.ModelAdmin):
-    fields = ['education_institution', 'education_degree', 'education_dates', 'education_gpa', 'education_description']
+    fields = ['education_institution', 'education_city', 'education_state', 'education_degree', 'education_dates', 'education_gpa', 'education_description']
 
 
 class VolunteerExperienceAdmin(admin.ModelAdmin):
-    fields = ['volunteer_organization', 'volunteer_dates', 'volunteer_description']
+    fields = ['volunteer_organization', 'volunteer_city', 'volunteer_state', 'volunteer_dates', 'volunteer_description']
 
 
 class CustomResumeAdmin(admin.ModelAdmin):

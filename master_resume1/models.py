@@ -27,6 +27,8 @@ class Skill(models.Model):
 
 class WorkExperience(models.Model):
     work_place = models.CharField(max_length=150)
+    work_city = models.CharField(max_length=50)
+    work_state = models.CharField(max_length=15)
     work_dates = models.CharField(max_length=25) # This will change to DateTimeField.
                                                 #  Place saver for now.
     work_description = models.TextField(blank=True)
@@ -37,6 +39,8 @@ class WorkExperience(models.Model):
 
 class Education(models.Model):
     education_institution = models.CharField(max_length=150)
+    education_city = models.CharField(max_length=50)
+    education_state = models.CharField(max_length=15)
     education_degree = models.CharField(max_length=100)
     education_dates = models.CharField(max_length=25) # This will change to DateTimeField.
                                                      #  Place saver for now.
@@ -49,6 +53,8 @@ class Education(models.Model):
 
 class VolunteerExperience(models.Model):
     volunteer_organization = models.CharField(max_length=150)
+    volunteer_city = models.CharField(max_length=50)
+    volunteer_state = models.CharField(max_length=15)
     volunteer_dates = models.CharField(max_length=25) # This will change to DateTimeField.
                                                      #  Place saver for now.
     volunteer_description = models.TextField(blank=True)
