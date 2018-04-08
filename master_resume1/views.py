@@ -3,7 +3,7 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 from django.views import generic
 
-from master_resume1.forms import SignupForm, SkillForm, EducationForm, WorkForm, VolunteerForm, SkillFormSet, EducationFormSet, WorkFormSet, VolunteerFormSet
+from master_resume1.forms import SignupForm, SkillForm, EducationForm, WorkForm, VolunteerForm
 from master_resume1.models import Profile, Skill, WorkExperience, Education, VolunteerExperience
 
 import account.forms

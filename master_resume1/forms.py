@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from django.forms.models import inlineformset_factory
+# from django.forms.models import inlineformset_factory
 
 from .models import Skill, WorkExperience, Education, VolunteerExperience
 from .states import States
@@ -23,16 +23,15 @@ class SignupForm(account.forms.SignupForm):
 
 
 class SkillForm(ModelForm):
-    """
     skill_category = forms.CharField() # i.e. retail, restaurant, etc
     skill_name = forms.CharField()
     """
     class Meta:
         model = Skill
+    """
 
 
 class WorkForm(ModelForm):
-    """
     work_place = forms.CharField()
     work_city = forms.CharField()
     work_state = forms.CharField(widget=forms.Select(choices=States.STATE_CHOICES))
@@ -42,9 +41,9 @@ class WorkForm(ModelForm):
     """
     class Meta:
         model = WorkExperience
+    """
 
 class EducationForm(ModelForm):
-    """
     education_institution = forms.CharField()
     education_city = forms.CharField()
     education_state = forms.CharField(widget=forms.Select(choices=States.STATE_CHOICES))
@@ -56,9 +55,9 @@ class EducationForm(ModelForm):
     """
     class Meta:
         model = Education
+    """
 
 class VolunteerForm(ModelForm):
-    """
     volunteer_organization = forms.CharField()
     volunteer_city = forms.CharField()
     volunteer_state = forms.CharField(widget=forms.Select(choices=States.STATE_CHOICES))
@@ -68,9 +67,11 @@ class VolunteerForm(ModelForm):
     """
     class Meta:
         model = VolunteerExperience
+    """
 
-
+"""
 SkillFormSet = inlineformset_factory(Skill, fields=('skill_category', 'skill_name'))
 WorkFormSet = inlineformset_factory(WorkExperience, fields=('work_place', 'work_city', 'work_state', 'work_dates', 'work_description'))
 EducationFormSet = inlineformset_factory(Education, fields=('education_institution', 'education_city', 'education_state', 'education_degree', 'education_dates', 'education_gpa','education_description'))
 VolunteerFormSet = inlineformset_factory(Volunteer, fields=('volunteer_organization', 'volunteer_city', 'volunteer_state', 'volunteer_dates', 'volunteer_description'))
+"""
